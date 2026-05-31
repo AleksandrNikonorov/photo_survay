@@ -444,11 +444,19 @@ function go(id){const order=['s-welcome','s-profile','s-block-instr','s-preload'
 function getCurrentSets(){return S.device_type==='mobile'?CFG.sets_mobile:CFG.sets_desktop}
 function getSetById(id){return [...CFG.sets_desktop,...CFG.sets_mobile].find(s=>s.id===id)}
 function initRandomization() {
+
+  // Возвращаем рандом...
+  // S.photo_sets = getCurrentSets();
+  // const setIdx = Math.floor(Math.random() * S.photo_sets.length);
+  // const vizIdx = Math.floor(Math.random() * CFG.viz_types.length);
+  // const chosenSet = S.photo_sets[setIdx];
+  // const chosenViz = CFG.viz_types[vizIdx];
+
+  // Это убрать
   S.photo_sets = getCurrentSets();
   const setIdx = Math.floor(Math.random() * S.photo_sets.length);
-  const vizIdx = Math.floor(Math.random() * CFG.viz_types.length);
   const chosenSet = S.photo_sets[setIdx];
-  const chosenViz = CFG.viz_types[vizIdx];
+  const chosenViz = 'grid';
 
   S.combination_variant = `${chosenSet.id}__${chosenViz}`;
   S.block_order = [setIdx];
