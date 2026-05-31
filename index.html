@@ -398,7 +398,7 @@ const CFG = {
     { id: 'set_e', path: './photos/set_e/', target_photo_id: 2 },
     { id: 'set_f', path: './photos/set_f/', target_photo_id: 4 },
   ],
-  viz_types: ['grid','scroll_h','scroll_v'],
+  viz_types: ['grid', 'grid', 'grid', 'scroll_h', 'scroll_v'],
   latin_square: [
     ['grid','scroll_h','scroll_v'],
     ['grid','scroll_v','scroll_h'],
@@ -446,17 +446,17 @@ function getSetById(id){return [...CFG.sets_desktop,...CFG.sets_mobile].find(s=>
 function initRandomization() {
 
   // Возвращаем рандом...
-  // S.photo_sets = getCurrentSets();
-  // const setIdx = Math.floor(Math.random() * S.photo_sets.length);
-  // const vizIdx = Math.floor(Math.random() * CFG.viz_types.length);
-  // const chosenSet = S.photo_sets[setIdx];
-  // const chosenViz = CFG.viz_types[vizIdx];
-
-  // Это убрать
   S.photo_sets = getCurrentSets();
   const setIdx = Math.floor(Math.random() * S.photo_sets.length);
+  const vizIdx = Math.floor(Math.random() * CFG.viz_types.length);
   const chosenSet = S.photo_sets[setIdx];
-  const chosenViz = 'grid';
+  const chosenViz = CFG.viz_types[vizIdx];
+
+  // Это убрать
+  // S.photo_sets = getCurrentSets();
+  // const setIdx = Math.floor(Math.random() * S.photo_sets.length);
+  // const chosenSet = S.photo_sets[setIdx];
+  // const chosenViz = 'grid';
 
   S.combination_variant = `${chosenSet.id}__${chosenViz}`;
   S.block_order = [setIdx];
